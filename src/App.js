@@ -1,12 +1,17 @@
 import "./App.css";
 import Booklist from "./components/Booklist";
 import Navbar from "./components/Navbar";
+import ThemeToggle from "./components/ThemeToggle";
+import ThemeContextProvider from "./contexts/ThemeContext";
 
 function App() {
   return (
     <div className="app">
-      <Navbar />
-      <Booklist />
+      <ThemeContextProvider>
+        <Navbar />
+        <Booklist />
+        <ThemeToggle />
+      </ThemeContextProvider>
     </div>
   );
 }
