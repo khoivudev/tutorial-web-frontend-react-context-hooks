@@ -1,15 +1,12 @@
 import React, { useContext, useEffect, useState } from "react";
 import { ThemeContext } from "../contexts/ThemeContext";
-import uuid from "uuid/v1";
+import { v4 as uuid } from "uuid";
+import { BookContext } from "../contexts/BookContext";
 
 const Booklist = () => {
   const { isLightTheme, light, dark } = useContext(ThemeContext);
+  const { books, setBooks } = useContext(BookContext);
   const [theme, setTheme] = useState({});
-  const [books, setBooks] = useState([
-    { title: "The way of kings", id: uuid() },
-    { title: "The name of the wind", id: uuid() },
-    { title: "The final empire", id: uuid() },
-  ]);
 
   useEffect(() => {
     setTheme(isLightTheme ? light : dark);

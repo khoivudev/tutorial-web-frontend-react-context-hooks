@@ -4,15 +4,18 @@ import Navbar from "./components/Navbar";
 import ThemeToggle from "./components/ThemeToggle";
 import AuthContextProvider from "./contexts/AuthContext";
 import ThemeContextProvider from "./contexts/ThemeContext";
+import BookContextProvider from "./contexts/BookContext";
 
 function App() {
   return (
     <div className="app">
       <ThemeContextProvider>
         <AuthContextProvider>
-          <Navbar />
-          <Booklist />
-          <ThemeToggle />
+          <BookContextProvider>
+            <Navbar />
+            <Booklist />
+            <ThemeToggle />
+          </BookContextProvider>
         </AuthContextProvider>
       </ThemeContextProvider>
     </div>
