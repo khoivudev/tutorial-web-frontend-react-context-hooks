@@ -18,8 +18,7 @@ nav ul li {
 }
 
 .book-list {
-    padding: 20px;
-    margin-bottom: 20px;
+    margin: 20px;
 }
 
 .book-list ul {
@@ -29,6 +28,21 @@ nav ul li {
 
 .book-list li {
     padding: 10px;
-    margin: 10px auto;
-    border-radius: 10px;
+    margin: 10px 0;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+.book-list li:hover {
+    opacity: 0.7;
+    text-decoration: line-through;
+}
+
+.book-list .title {
+    font-weight: bold;
+    font-size: 1.2em;
+}
+
+.book-list .author {
+    font-size: 0.9em;
 }

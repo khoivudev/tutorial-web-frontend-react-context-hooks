@@ -1,10 +1,12 @@
 import React, { useContext, useEffect, useState } from "react";
 import { ThemeContext } from "../contexts/ThemeContext";
 import { AuthContext } from "../contexts/AuthContext";
+import { BookContext } from "../contexts/BookContext";
 
 const Navbar = () => {
   const { isLightTheme, light, dark } = useContext(ThemeContext);
   const { isAuthenticated, toggleAuth } = useContext(AuthContext);
+  const { books } = useContext(BookContext);
 
   const [theme, setTheme] = useState({});
 
@@ -23,6 +25,7 @@ const Navbar = () => {
         <li>About</li>
         <li>Contact</li>
       </ul>
+      <h3>Current you have {books.length}</h3>
     </nav>
   );
 };

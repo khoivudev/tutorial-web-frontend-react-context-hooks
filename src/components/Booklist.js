@@ -2,33 +2,31 @@ import React, { useContext, useEffect, useState } from "react";
 import { ThemeContext } from "../contexts/ThemeContext";
 import { v4 as uuid } from "uuid";
 import { BookContext } from "../contexts/BookContext";
+import BookDetails from "./BookDetails";
 
 const Booklist = () => {
   const { isLightTheme, light, dark } = useContext(ThemeContext);
-  const { books, setBooks } = useContext(BookContext);
+  const { books } = useContext(BookContext);
   const [theme, setTheme] = useState({});
 
   useEffect(() => {
     setTheme(isLightTheme ? light : dark);
   }, [isLightTheme]);
 
-  const addBook = () => {
-    setBooks([...books, { title: "new book", id: uuid() }]);
-  };
-  return (
+  return books.length ? (
     <div
       className="book-list"
       style={{ background: theme.bg, color: theme.syntax }}
     >
       <ul>
         {books.map((book) => (
-          <li key={book.id} style={{ background: theme.ui }}>
-            {book.title}
-          </li>
+          <BookDetails book={book} key={book.id} />
         ))}
       </ul>
-      <button onClick={addBook}>Add book</button>
+      <button onClick={() => {}}>Add book</button>
     </div>
+  ) : (
+    <div className="empty">No books to read. Hello free time :)</div>
   );
 };
 
