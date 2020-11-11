@@ -15,17 +15,16 @@ const Navbar = () => {
   }, [isLightTheme]);
 
   return (
-    <nav style={{ background: theme.ui, color: theme.syntax }}>
-      <h1>Context App</h1>
+    <nav
+      className="navbar"
+      style={{ background: theme.bg, color: theme.syntax }}
+    >
+      <h1>Book list App</h1>
       <button onClick={toggleAuth}>
         {isAuthenticated ? "Logged in" : "Logged out"}
       </button>
-      <ul>
-        <li>Home</li>
-        <li>About</li>
-        <li>Contact</li>
-      </ul>
-      <h3>Current you have {books.length}</h3>
+
+      <h3>Current you have {books.length} books to get through... </h3>
     </nav>
   );
 };
